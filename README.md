@@ -25,11 +25,18 @@ tasks:
     
 
 having tried finding agreement between models - seems to be a bad idea, because what's to say a topic is matched to another? obvious logic hole
-
-new plan: make word2vec vectors from the corpus*
-    - cluster said vectors into n categories - consider those "topics"
-    - find cluster mean
-    - find most similar vector
     
-*considered doc2vec, but since word vectors supposedly take the context into account, I'll take the automatic data augmentation
+the plan:
+    - process all articles and titles
+    - train word vectors on all articles
+    - split to train/test (0.5)
+    - train KNN (10) on train
+    - predict labels for all in test
+    - create new set, where all in original_article in test get sent_tokenized and split into new examples, then process as before
+    - split into train/test (0.8/0.2 of the 0.5 test from earlier)
+    - evaluate on test/test
+
+stretch: try different numbers of clusters
+    
+    if the unsupervised topic clustering is doing a good job, it should be consistent between train and test sets when labels are made from KNN, and then classified
 
