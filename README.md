@@ -5,24 +5,15 @@ The newest file in there is word_vector_clusters.ipynb. The theory there was tha
 
 
 topicgetter.py:
-- this was using an SVD model to extract topics, put in a separate utility file so that hyperparameters like num_topics could be tried systematically
-preprocessor.py: 
-- came about with the idea of automating the preprocessing steps in creating the input text, but that was easily copy-pasted
-for unsupervised topic modelling, try LDA
-given more time, I'd do more research on things like this: "Unsupervised Topic Modeling for Short Texts Using Distributed
-Representations of Words" https://www.aclweb.org/anthology/W15-1526.pdf , that claim to beat LDA
+- This was using an SVD model to extract topics, put in a separate utility file so that hyperparameters like num_topics could be tried systematically
 
-simple idea for a different dataset: how possible is it to identify topics by what students have questions about?
+preprocessor.py: 
+- This came about with the idea of automating the preprocessing steps in creating the input text, but that was easily copy-pasted
+for unsupervised topic modelling, try LDA
+
+With more time, I'd do more research on newer unsupervised topic modelling approaches like this: "Unsupervised Topic Modeling for Short Texts Using Distributed Representations of Words" https://www.aclweb.org/anthology/W15-1526.pdf that claim to beat LDA
 
 With this, there's a good idea about the topics in the title
-
-how many topics? try using the number of titles
-
-tasks:
-    - change to remove punctuation before tokenization
-    - bonus - sent_tokenize the Wiki articles for data augmentation
-    - "ground truth" doesn't exist here, but the article titles and first couple of lines of the articles probably contain key terms
-    
 
 having tried finding agreement between models - seems to be a bad idea, because what's to say a topic is matched to another? obvious logic hole
     
